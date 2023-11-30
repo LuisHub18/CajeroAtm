@@ -1,5 +1,5 @@
 import java.util.Scanner;
-//This is  a test comment
+//All well
 public class Main {
 	static Scanner entrada = new Scanner(System.in);
     public static void main(String[] args) {
