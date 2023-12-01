@@ -1,5 +1,5 @@
 import java.util.Scanner;
-//All well
+//segundo cambio i'm the best
 public class Main {
 	static Scanner entrada = new Scanner(System.in);
     public static void main(String[] args) {
