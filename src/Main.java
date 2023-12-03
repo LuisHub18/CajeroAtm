@@ -7,7 +7,7 @@ import java.util.Scanner;
 //All well
 public class Main {
 	static Scanner entrada = new Scanner(System.in);
-    public void Operaciones(Cuenta cuentaOrigen, Cuenta cuentaDestino) {
+    public static void Operaciones(Cuenta cuentaOrigen) {
         int bandera = 0;
         int seleccion = 0;
         String Nombre = "";
@@ -42,7 +42,9 @@ public class Main {
                 Clase_Abstractaa mensajero = new Deposito(cuentaOrigen);
                 mensajero.Transacciones();
             } else if(seleccion == 4){
-                Clase_Abstractaa mensajero = new Transferencia(cuentaOrigen, cuentaDestino);
+                System.out.println("------Transferencia--------\nCuenta destino: ");
+                String destino = entrada.next();
+                Clase_Abstractaa mensajero = new Transferencia(cuentaOrigen, destino);
                 mensajero.Transacciones();
             } else if(seleccion == 5){
                 System.out.println("==========================");
@@ -57,19 +59,24 @@ public class Main {
         //Aqui crearemos clientes y la cuenta de cada uno
         Cliente cliente1 = new Cliente("Catalina", "Calle 1", "23140972");
         Cliente cliente2 = new Cliente("Juan", "Calle 2", "23140973");
-        Cuenta cuenta1 = new Cuenta("23140972", cliente1.id, 8002, 1700);
-        Cuenta cuenta2 = new Cuenta("23140973", cliente2.id, 8003, 1000);
+        Cuenta cuenta = new Cuenta();
+        cuenta.agregarCuenta("23140972", cliente1.id, 8002, 1700);
+        cuenta.agregarCuenta("23140973", cliente2.id, 8003, 1000);
 
-        Cuenta [] cuentas = {cuenta1, cuenta2};
-        System.out.println("----------------------------------------------------");
+        /*System.out.println("----------------------------------------------------");
         System.out.println("Ingrese su Nombre:");
-        String Nombre = entrada.nextLine();
+        String Nombre = entrada.nextLine(); */
         System.out.println("Ingrese su Numero de cuenta:");
         String Num_cuenta = entrada.nextLine();
         System.out.println("Ingrese su Nip:		(8002)");
         int Nip = entrada.nextInt();
         System.out.println("----------------------------------------------------");
 
+        if(cuenta.validarCuenta(Num_cuenta,Nip)){
+            Operaciones(cuenta.buscarCuenta(Num_cuenta));
+        }else{
+            System.out.println("=================\n\tNo se pudo ingresar\n===============");
+        }
 
        /* boolean cuentaEncontrada = Arrays.stream(cuentas)
                 .anyMatch(cuenta -> cuenta.getNumCuenta().equals(Num_cuenta) &&

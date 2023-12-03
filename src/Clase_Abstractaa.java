@@ -11,8 +11,8 @@ public abstract class Clase_Abstractaa {
     public void Deposito(){
         deposito = entrada.nextInt();
     }
-    public void Transferencia(){
-        transferencia = entrada.nextInt();
+    public int Transferencia(){
+        return transferencia = entrada.nextInt();
     }
     public abstract void Transacciones();
 }
