@@ -19,14 +19,14 @@ public class Main {
         cuenta.agregarCuenta("23140972", cliente1.id, 8002, 1700, banco);
         cuenta.agregarCuenta("23140973", cliente2.id, 8003, 1000, banco);
         cuenta.agregarCuenta("23140974", cliente3.id, 8004, 3000, banco);
-
+        System.out.println("===================== PROYECTO CAJERO ATM =====================");
         do
         {
             System.out.println("----------------------------------------------------");
-            System.out.println("Ingrese su Numero de cuenta:");
+            System.out.print("Ingrese su Numero de cuenta:");
             String Num_cuenta = entrada.nextLine();
 
-            System.out.println("Ingrese su Nip: (8002)");
+            System.out.print("Ingrese su Nip: (8002)");
             int Nip = 0;
 
             try {
@@ -41,7 +41,7 @@ public class Main {
             if (cuenta.validarCuenta(Num_cuenta, Nip)) {
                 cajero.Operaciones(cuenta.buscarCuenta(Num_cuenta));
             } else {
-                System.out.println("=================\n\tNo se pudo ingresar\n===============");
+                System.out.println("===========================\n\tNo se pudo ingresar\n===========================");
             }
             i++;
        } while (i != 5);

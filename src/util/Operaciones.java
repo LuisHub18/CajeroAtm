@@ -3,7 +3,7 @@ package util;
 import entidades.Transaccion;
 
 import java.util.Scanner;
-public abstract class Operaciones {
+public abstract class Operaciones implements Operacion{
     protected int retiro, deposito,transferencia;
     Scanner entrada = new Scanner(System.in);
 
