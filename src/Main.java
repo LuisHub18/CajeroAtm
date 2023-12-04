@@ -27,7 +27,7 @@ public class Main {
             String Num_cuenta = entrada.nextLine();
 
             System.out.print("Ingrese su Nip: (8002)");
-            int Nip = 0;
+            int Nip;
 
             try {
                 Nip = Integer.parseInt(entrada.nextLine());
