@@ -1,18 +1,22 @@
+package Operaciones;
+
+import Entidades.CajeroAutomatico;
 import Entidades.Cuenta;
 import Entidades.Transaccion;
+import Util.Operaciones;
 import Util.TipoTransaccion;
 
 import java.time.LocalDate;
 
-public class Retiro extends Clase_Abstractaa {
+public class Retiro extends Operaciones {
 	private Cuenta cuenta;
-
-	public Retiro(Cuenta cuenta) {
+	private CajeroAutomatico cajero;
+	public Retiro(Cuenta cuenta, CajeroAutomatico cajero) {
 		this.cuenta = cuenta;
+		this.cajero = cajero;
 	}
     @Override
-    public void Transacciones() {
-    	
+    public Transaccion Transacciones() {
     			 System.out.print("Cuanto deseas retirar: ");
     		        Retiro();
     		        if (retiro <= cuenta.getSaldo()) {
@@ -20,7 +24,7 @@ public class Retiro extends Clase_Abstractaa {
     		            System.out.println("====================================");
     		            System.out.println("=================BBVA===============");
     		            System.out.println("				Debito				");
-    		            System.out.println("Se realizo una Consulta" + LocalDate.now());
+    		            System.out.println("Se realizo una Operaciones.Consulta" + LocalDate.now());
     		            System.out.println("Retiraste : " + retiro);
     		            System.out.println("Tu saldo actual es: " + cuenta.getSaldo());
     		            System.out.println("====================================");
@@ -28,8 +32,7 @@ public class Retiro extends Clase_Abstractaa {
     		            System.out.println("=====================");
     		            System.out.println("Saldo insuficiente.");
     		            System.out.println("=====================");
-    
-       
-    }
-}
+    		}
+		return new Transaccion(TipoTransaccion.RETIRO,deposito,cuenta, this.cajero);
+	}
 }

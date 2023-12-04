@@ -1,19 +1,29 @@
+package Operaciones;
+
+import Entidades.CajeroAutomatico;
 import Entidades.Cuenta;
+import Entidades.Transaccion;
+import Administradores.AdministraCuentas;
+import Util.Operaciones;
+import Util.TipoTransaccion;
 
 import java.time.LocalDate;
 
-public class Transferencia extends Clase_Abstractaa {
+public class Transferencia extends Operaciones {
 
-    private Cuenta cuenta = new Cuenta();
+    private AdministraCuentas cuentas = new AdministraCuentas();
     private Cuenta cuentaOrigen;
     private Cuenta cuentaDestino;
 
-    public Transferencia(Cuenta cuentaOrigen, String destino) {
+    private CajeroAutomatico cajero;
+
+    public Transferencia(Cuenta cuentaOrigen, String destino, CajeroAutomatico cajero) {
         this.cuentaOrigen = cuentaOrigen;
-        cuentaDestino = cuenta.buscarCuenta(destino);
+        this.cajero = cajero;
+        cuentaDestino = cuentas.buscarCuenta(destino);
     }
     @Override
-    public void Transacciones() {
+    public Transaccion Transacciones() {
     			System.out.print("Cuanto quieres Transferir: ");
                 int transferencia = Transferencia();
                 if (transferencia <= cuentaOrigen.getSaldo()) {
@@ -24,7 +34,7 @@ public class Transferencia extends Clase_Abstractaa {
                     System.out.println("=================BBVA===============");
                     System.out.println("				Debito				");
                     System.out.println("Se realizo una transferencia el " + LocalDate.now());
-                    System.out.println("A la cuenta "+ cuentaOrigen.numCuenta());
+                    System.out.println("A la cuenta "+ cuentas.numCuenta(cuentaOrigen.getCliente()));
                     System.out.println("transferiste : " + transferencia);
                     System.out.println("Tu saldo actual es: " + cuentaOrigen.getSaldo());
                     System.out.println("====================================");
@@ -35,6 +45,6 @@ public class Transferencia extends Clase_Abstractaa {
                
         	
                 }
-    			
+            return new Transaccion(TipoTransaccion.TRANSFERENCIA, transferencia, cuentaOrigen, cuentaDestino, this.cajero);
     }
 }
