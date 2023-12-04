@@ -21,12 +21,12 @@ public class Deposito extends Operaciones {
         System.out.print("Cuanto deseas depositar: ");
         Deposito();
         hacerDeposito(deposito, this.cuenta);
-        System.out.println("===================================");
-        System.out.println("=================BBVA===============");
-        System.out.println("				Debito				");
+        System.out.println("==============================================");
+        System.out.println("===================== BBVA ===================");
+        System.out.println("				     Debito		  		      ");
         System.out.println("Depositaste: " + deposito);
         System.out.println("Tu saldo actual es: " + cuenta.getSaldo());
-        System.out.println("===================================");
+        System.out.println("==============================================");
         return new Transaccion(TipoTransaccion.DEPOSITO,deposito,cuenta, this.cajero);
     }
     

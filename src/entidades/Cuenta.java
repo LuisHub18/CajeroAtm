@@ -4,6 +4,7 @@ import util.TipoCuenta;
 import java.util.UUID;
 
 public class Cuenta {
+    private UUID id;
     private final int nip;
     private final UUID cliente;
     private double saldo;
@@ -12,6 +13,7 @@ public class Cuenta {
     private Banco banco;
 
     public Cuenta(UUID cliente, int nip, double saldo, TipoCuenta tipo, Banco banco) {
+        this.id = UUID.randomUUID();
         this.cliente = cliente;
         this.nip = nip;
         this.saldo = saldo;

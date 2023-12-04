@@ -45,13 +45,13 @@ public class Transaccion{
         this.cajero = cajero;
     }
     public String imprimirTicket(){
-        return "====================================\n" +
-                "================="+cajero.getBanco()+"===============\n" +
-                "				"+ tipo.name() +"				\n" +
+        return "===========================TICKET==========================\n" +
+                "============================"+cajero.getBanco()+"===========================\n" +
+                "			     	     "+ tipo.name() +"	       			\n" +
                 "Fecha: " + fecha + "\n" +
                 "Cliente: " + cuenta.getCliente() +"\n" +
                 "Monto: " + monto + "\n" +
                 "Saldo: " + cuenta.getSaldo() + "\n" +
-                "====================================\n";
+                "=========================================================\n";
     }
 }

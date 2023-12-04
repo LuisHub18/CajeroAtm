@@ -21,13 +21,13 @@ public class Retiro extends Operaciones {
     		        Retiro();
     		        if (retiro <= cuenta.getSaldo()) {
     		            cuenta.setSaldo(cuenta.getSaldo() - retiro);
-    		            System.out.println("====================================");
-    		            System.out.println("=================BBVA===============");
-    		            System.out.println("				Debito				");
-    		            System.out.println("Se realizo una Operaciones.Consulta" + LocalDate.now());
+						System.out.println("==============================================");
+						System.out.println("===================== BBVA ===================");
+    		            System.out.println("				     Retiro				      ");
+    		            System.out.println("Se realizo un retiro" + LocalDate.now());
     		            System.out.println("Retiraste : " + retiro);
     		            System.out.println("Tu saldo actual es: " + cuenta.getSaldo());
-    		            System.out.println("====================================");
+    		            System.out.println("==============================================");
     		        } else {
     		            System.out.println("=====================");
     		            System.out.println("Saldo insuficiente.");

@@ -10,9 +10,10 @@ import util.Operaciones;
 import java.time.LocalDate;
 import java.util.Locale;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class CajeroAutomatico {
-
+    private UUID id;
     private Locale localizacion;
     private String banco;
     private AdministraTransacciones transacciones = new AdministraTransacciones();
@@ -20,6 +21,7 @@ public class CajeroAutomatico {
     static Scanner entrada = new Scanner(System.in);
 
     public CajeroAutomatico(String banco){
+        this.id=UUID.randomUUID();
         localizacion = Locale.getDefault();
         this.banco = banco;
     }
@@ -32,6 +34,7 @@ public class CajeroAutomatico {
         System.out.println("¿Desea imprimir el ticket de la transacción?");
         System.out.println("1. Si");
         System.out.println("2. No");
+        System.out.print("=>");
         int seleccion = entrada.nextInt();
         if(seleccion == 1){
             System.out.println(transaccion.imprimirTicket());
@@ -51,6 +54,7 @@ public class CajeroAutomatico {
                 System.out.println("    3. Deposito de efectivo.");
                 System.out.println("    4. Hacer una transferencia");
                 System.out.println("    5. Salir.");
+                System.out.print("=>");
                 seleccion = entrada.nextInt();
 
                 if (seleccion >= 1 && seleccion <= 5) {
@@ -78,7 +82,8 @@ public class CajeroAutomatico {
                 transacciones.agregarTransaccion(transaccion);
                 deseaImprimirTicket(transaccion);
             } else if(seleccion == 4){
-                System.out.println("------Operaciones.Transferencia--------\nCuenta destino: ");
+                System.out.println("------------------Transferencia------------------\nCuenta destino: ");
+                System.out.print("=>");
                 String destino = entrada.next();
                 Operaciones mensajero = new Transferencia(cuentaOrigen, destino, this);
                 Transaccion transaccion = mensajero.Transacciones();
