@@ -43,8 +43,8 @@ public class Main {
             } else {
                 System.out.println("=================\n\tNo se pudo ingresar\n===============");
             }
-       } while (i != 1);
-
+            i++;
+       } while (i != 5);
     }
 }
 
