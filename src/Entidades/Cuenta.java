@@ -1,57 +1,31 @@
 package Entidades;
 
+import Util.TipoCuenta;
 import java.util.UUID;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Cuenta {
-    private int nip;
-    private UUID cliente;
+    private final int nip;
+    private final UUID cliente;
     private double saldo;
+    private final TipoCuenta tipo;
 
-    public Map<String, Cuenta> Cuentas = new HashMap<>();
+    private Banco banco;
 
-    public Cuenta(UUID cliente, int nip, double saldo) {
+    public Cuenta(UUID cliente, int nip, double saldo, TipoCuenta tipo, Banco banco) {
         this.cliente = cliente;
         this.nip = nip;
         this.saldo = saldo;
+        this.tipo = tipo;
+        this.banco = banco;
     }
 
-    public Cuenta() {
+    public UUID getCliente() {
+        return this.cliente;
     }
 
-    public void agregarCuenta(String num_cuenta, UUID cliente, int nip, double saldo){
-        Cuentas.put(num_cuenta, new Cuenta(cliente,nip,saldo));
+    public TipoCuenta getTipo() {
+        return this.tipo;
     }
-    public boolean validarCuenta(String cuenta, int nip){
-        if (Cuentas.containsKey(cuenta) && obtenerNip(nip))
-            return true;
-        return false;
-    }
-
-    public String numCuenta (){
-        for (Map.Entry<String, Cuenta> entry : Cuentas.entrySet()) {
-            String key = entry.getKey();
-            return key;
-        }
-        return "";
-    }
-
-    public boolean obtenerNip(int nip) {
-        for (Map.Entry<String, Cuenta> entry : Cuentas.entrySet()) {
-            Cuenta cuenta = entry.getValue();
-            if (cuenta.getNip() == nip)
-                 return true;
-        }
-
-        return false;
-    }
-
-
-    public Cuenta buscarCuenta(String cuenta){
-            return Cuentas.get(cuenta);
-    }
-
 
     public int getNip() {
         return this.nip;

@@ -1,6 +1,9 @@
-import java.time.LocalDate;
+package Util;
+
+import Entidades.Transaccion;
+
 import java.util.Scanner;
-public abstract class Clase_Abstractaa {
+public abstract class Operaciones {
     protected int retiro, deposito,transferencia;
     Scanner entrada = new Scanner(System.in);
 
@@ -14,5 +17,5 @@ public abstract class Clase_Abstractaa {
     public int Transferencia(){
         return transferencia = entrada.nextInt();
     }
-    public abstract void Transacciones();
+    public abstract Transaccion Transacciones();
 }

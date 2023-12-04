@@ -11,30 +11,47 @@ public class Transaccion{
     double monto;
 
     Cuenta cuenta;
+    CajeroAutomatico cajero;
 
-
-    public Transaccion(TipoTransaccion tipo, double monto, Cuenta cuenta) {
+    Cuenta cuentaDestino;
+    //Retiro o Deposito
+    public Transaccion(TipoTransaccion tipo, double monto, Cuenta cuenta, CajeroAutomatico cajero) {
         this.id = UUID.randomUUID();
         this.fecha = LocalDate.now();
         this.tipo = tipo;
         this.monto = monto;
         this.cuenta = cuenta;
+        this.cuentaDestino = null;
+        this.cajero = cajero;
     }
-
-
-    public double getMonto() {
-        return this.monto;
+    //Consulta
+    public Transaccion (TipoTransaccion tipo, Cuenta cuenta, CajeroAutomatico cajero) {
+        this.id = UUID.randomUUID();
+        this.fecha = LocalDate.now();
+        this.tipo = tipo;
+        this.monto = 0;
+        this.cuenta = cuenta;
+        this.cuentaDestino = null;
+        this.cajero = cajero;
     }
-
-    public TipoTransaccion getTipo() {
-        return this.tipo;
-    }
-
-    public Cuenta getNumCuentaOrigen() {
-        return this.cuenta;
-    }
-
-    public void setMonto(double monto) {
+    //Transferencia
+    public Transaccion(TipoTransaccion tipo, double monto, Cuenta cuenta, Cuenta cuentaDestino, CajeroAutomatico cajero) {
+        this.id = UUID.randomUUID();
+        this.fecha = LocalDate.now();
+        this.tipo = tipo;
         this.monto = monto;
+        this.cuenta = cuenta;
+        this.cuentaDestino = cuentaDestino;
+        this.cajero = cajero;
+    }
+    public String imprimirTicket(){
+        return "====================================\n" +
+                "================="+cajero.getBanco()+"===============\n" +
+                "				"+ tipo.name() +"				\n" +
+                "Fecha: " + fecha + "\n" +
+                "Cliente: " + cuenta.getCliente() +"\n" +
+                "Monto: " + monto + "\n" +
+                "Saldo: " + cuenta.getSaldo() + "\n" +
+                "====================================\n";
     }
 }
