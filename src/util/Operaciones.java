@@ -1,6 +1,6 @@
-package Util;
+package util;
 
-import Entidades.Transaccion;
+import entidades.Transaccion;
 
 import java.util.Scanner;
 public abstract class Operaciones {

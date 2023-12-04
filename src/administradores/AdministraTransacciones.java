@@ -1,6 +1,6 @@
-package Administradores;
+package administradores;
 
-import Entidades.Transaccion;
+import entidades.Transaccion;
 
 import java.util.ArrayList;
 

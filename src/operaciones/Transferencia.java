@@ -1,11 +1,11 @@
-package Operaciones;
+package operaciones;
 
-import Entidades.CajeroAutomatico;
-import Entidades.Cuenta;
-import Entidades.Transaccion;
-import Administradores.AdministraCuentas;
-import Util.Operaciones;
-import Util.TipoTransaccion;
+import entidades.CajeroAutomatico;
+import entidades.Cuenta;
+import entidades.Transaccion;
+import administradores.AdministraCuentas;
+import util.Operaciones;
+import util.TipoTransaccion;
 
 import java.time.LocalDate;
 

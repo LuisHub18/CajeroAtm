@@ -1,7 +1,7 @@
-import Entidades.Banco;
-import Entidades.CajeroAutomatico;
-import Entidades.Cliente;
-import Administradores.AdministraCuentas;
+import entidades.Banco;
+import entidades.CajeroAutomatico;
+import entidades.Cliente;
+import administradores.AdministraCuentas;
 import java.util.Scanner;
 
 public class Main {

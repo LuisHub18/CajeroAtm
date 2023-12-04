@@ -1,8 +1,8 @@
-package Administradores;
+package administradores;
 
-import Entidades.Banco;
-import Entidades.Cuenta;
-import Util.TipoCuenta;
+import entidades.Banco;
+import entidades.Cuenta;
+import util.TipoCuenta;
 
 import java.util.HashMap;
 import java.util.Map;

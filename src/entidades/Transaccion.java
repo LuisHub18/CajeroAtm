@@ -1,6 +1,6 @@
-package Entidades;
+package entidades;
 
-import Util.TipoTransaccion;
+import util.TipoTransaccion;
 import java.time.LocalDate;
 import java.util.UUID;
 

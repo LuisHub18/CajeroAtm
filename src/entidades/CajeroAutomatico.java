@@ -1,11 +1,11 @@
-package Entidades;
+package entidades;
 
-import Operaciones.Consulta;
-import Operaciones.Deposito;
-import Operaciones.Retiro;
-import Operaciones.Transferencia;
-import Administradores.AdministraTransacciones;
-import Util.Operaciones;
+import operaciones.Consulta;
+import operaciones.Deposito;
+import operaciones.Retiro;
+import operaciones.Transferencia;
+import administradores.AdministraTransacciones;
+import util.Operaciones;
 
 import java.time.LocalDate;
 import java.util.Locale;

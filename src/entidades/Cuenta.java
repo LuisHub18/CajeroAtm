@@ -1,6 +1,6 @@
-package Entidades;
+package entidades;
 
-import Util.TipoCuenta;
+import util.TipoCuenta;
 import java.util.UUID;
 
 public class Cuenta {
